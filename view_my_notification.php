@@ -26,13 +26,6 @@ else { ?>
                                     ?>
                                     <div class="alert alert-success">NOTIFICATION DETAILS</div>
                                     <div class="span9">
-                                        Destination: <?php if ($row['destination'] == 'both') { ?>
-                                            <strong>pharmacist and user</strong>
-                                        <?php } else { ?>
-                                            <strong><?php echo $row['destination']; ?></strong>
-                                        <?php } ?>
-                                        <hr>
-
                                         Importance: <?php if ($row['importance'] == 'normal') { ?>
                                             <strong>normal</strong>
                                         <?php } else { ?>

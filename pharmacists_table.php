@@ -88,7 +88,28 @@
 					<td><?php echo $row['pharmacy_name']; ?></td>
 					<td><?php echo $row['email']; ?></td>
 					<td><?php echo $row['phone_number']; ?></td>
-					<td><?php echo $row['location']; ?></td>
+					<td>
+						<a href="view_location.php?id=<?php echo $id; ?>&role=pharmacist" id="location_<?php echo $row['id']; ?>"></a>
+
+						<script>
+							var latLng = '<?php echo $row['location']; ?>';
+							var [latitude, longitude] = latLng.split(", ");
+
+							var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+
+							fetch(apiUrl)
+								.then(response => response.json())
+								.then(data => {
+									// Extract the name of the place from the API response
+									var placeName = data.address.village || data.address.town || data.address.city || data.address.hamlet;
+									var country = data.address.country;
+									document.getElementById("location_<?php echo $row['id']; ?>").textContent = placeName + ", " + country;
+								})
+								.catch(error => {
+									console.error(error);
+								});
+						</script>
+					</td>
 					<td><?php echo $row['created_at']; ?></td>
 
 					<td class="empty" width="160">
@@ -160,6 +181,7 @@
 						</div>
 					</td>
 				</tr>
+
 				<?php include('modal_delete_pharmacist.php'); ?>
 				<?php include('modal_enable_pharmacist.php'); ?>
 				<?php include('modal_disable_pharmacist.php'); ?>

@@ -26,7 +26,7 @@
                         ?>
 
                         <div class="block-content collapse in">
-                            <div class="alert alert-success">CERTIFICATE OF: <?php echo $row['full_name']; ?></div>
+                            <div class="alert alert-success">CERTIFICATE OF <?php echo $row['full_name']; ?></div>
                             <?php if ($row['certificate'] == '') echo 'no image found';
                             else { ?>
                                 <img style="border: 3px solid grey;" src="img/<?php echo $row['certificate']; ?>" />

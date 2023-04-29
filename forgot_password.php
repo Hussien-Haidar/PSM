@@ -32,12 +32,12 @@
                                 data: formData,
                                 success: function(html) {
                                     if (html == 'no_email_found') {
-                                        $.jGrowl("no email logged-in on system is found", {
+                                        $.jGrowl("No email found on the system", {
                                             header: 'Failed to Send'
                                         });
                                         var delay = 5000;
                                     } else if (html == 'email_found') {
-                                        $.jGrowl("verification emai has been sent successfully", {
+                                        $.jGrowl("verification email has been sent successfully", {
                                             header: 'Verification Email Sent'
                                         });
                                         var delay = 4000;

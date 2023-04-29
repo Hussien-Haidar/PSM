@@ -52,9 +52,9 @@ if (!$exist) {
     if ($result) { ?>
         <b style="padding-left: 20px; font-size: 20px;" class="text-info">Your request has been sent successfully to the administration, please wait to review
             the information you provided, when we are done you will get email notification holding your
-            username and password if accepted
-        </b>;
+            username and password if accepted.
+        </b>
     <?php }
 } else { ?>
-    <b style="padding-left: 20px; font-size: 20px;" class="text-warning">The email you entered is already exists</b>
+    <b style="padding-left: 20px; font-size: 20px;" class="text-warning">The email you entered is already exists, <a href="javascript:history.go(-1)">back to edit your request</a></b>
 <?php }

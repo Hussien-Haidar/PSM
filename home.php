@@ -5,7 +5,7 @@ include('header.php');
 <body id="login">
 	<div class="container">
 		<?php include('navbar_index.php'); ?>
-		<img src="images/ban.jpeg" class="img-polaroid">
+		<img src="img/images/ban.jpeg" class="img-polaroid">
 		<form id="login_form" class="form-signin" method="post">
 			<h3 class="form-signin-heading"><i class="icon-lock"></i> Please Login</h3>
 			<input type="text" class="input-block-level" id="usernmae" name="username" placeholder="Username" required>

@@ -30,7 +30,7 @@ if (isset($_POST['id']) && $_POST['id'] != '') {
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('72030603@students.liu.edu.lb', 'PMS - Pharmacist Management System');
+    $mail->setFrom('72030603@students.liu.edu.lb', 'PSM - Pharmacist System Management');
 
     if (isset($_POST['enable_pharmacist'])) {
         mysqli_query($con, "UPDATE pharmacists set status='verified' where id='$id'");
@@ -131,7 +131,7 @@ if (isset($_POST['id']) && $_POST['id'] != '') {
         $date = strval($current_date);
 
         $length = 10;
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_';
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
         for ($i = 0; $i < $length; $i++) {
             $username .= $chars[rand(0, strlen($chars) - 1)];
             $password .= $chars[rand(0, strlen($chars) - 1)];
@@ -169,7 +169,7 @@ if (isset($_POST['id']) && $_POST['id'] != '') {
         $date = strval($current_date);
 
         $length = 10;
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_';
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
         for ($i = 0; $i < $length; $i++) {
             $username .= $chars[rand(0, strlen($chars) - 1)];
             $password .= $chars[rand(0, strlen($chars) - 1)];

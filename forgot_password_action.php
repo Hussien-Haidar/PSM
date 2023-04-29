@@ -25,28 +25,27 @@ $mail->Password   = 'your password';
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = 465;
 
+//Recipients
+$mail->setFrom('72030603@students.liu.edu.lb', 'PSM - Pharmacist System Management');
+
+$mail->addAddress($_POST['email']);
+
+//Content
+$mail->isHTML(true);
+$mail->Subject = 'Reset Password';
+$mail->Body = '
+<h1>Reset Password Button</h1>
+<p>To reset your password please click on the below button:</p>
+<a href="http://www.example.com" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a>
+';
+
 if (isset($_POST["email"])) {
     $email = $_POST['email'];
     $exist = false;
     $result = mysqli_query($con, "SELECT * FROM pharmacists where email = '$email'");
 
     if (mysqli_num_rows($result) > 0) {
-        'email_found';
-
-        //Recipients
-        $mail->setFrom('72030603@students.liu.edu.lb', 'PMS - Pharmacist Management System');
-
-        $mail->addAddress($_POST['email']);
-
-        //Content
-        $mail->isHTML(true);
-        $mail->Subject = 'Reset Password';
-        $mail->Body = '
-        <h1>Reset Password Button</h1>
-        <p>To reset your password please click on the below button:</p>
-        <a href="http://www.example.com" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a>
-        ';
-
+        echo 'email_found';
         $mail->send();
     } else {
         echo 'no_email_found';

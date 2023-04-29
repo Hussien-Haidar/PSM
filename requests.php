@@ -1,6 +1,7 @@
 <?php include('session.php'); ?>
 <?php if($_SESSION['role']=='pharmacist') echo 'access denied'; else { ?>
 <?php include('header.php'); ?>
+<?php include('header_map.php'); ?>
 
 <body>
     <?php include('navbar.php'); ?>
@@ -25,7 +26,7 @@
                         </div>
                         <div class="block-content collapse in">
                             <div class="span12" id="riderTableDiv">
-                                <h2 id="noch">Riders List</h2>
+                                <h2 id="noch">Requests List</h2>
                                 <?php include('requests_table.php'); ?>
                             </div>
                         </div>
@@ -38,5 +39,3 @@
 </body>
 
 <?php } ?>
-
-</html>

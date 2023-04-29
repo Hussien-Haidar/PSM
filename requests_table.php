@@ -36,7 +36,28 @@
 						<td><?php echo $row['pharmacy_name']; ?></td>
 						<td><?php echo $row['email']; ?></td>
 						<td><?php echo $row['phone_number']; ?></td>
-						<td><?php echo $row['location']; ?></td>
+						<td>
+							<a href="view_location.php?id=<?php echo $id; ?>" id="location_<?php echo $row['id']; ?>"></a>
+
+							<script>
+								var latLng = '<?php echo $row['location']; ?>';
+								var [latitude, longitude] = latLng.split(", ");
+
+								var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+
+								fetch(apiUrl)
+									.then(response => response.json())
+									.then(data => {
+										// Extract the name of the place from the API response
+										var placeName = data.address.village || data.address.town || data.address.city || data.address.hamlet;
+										var country = data.address.country;
+										document.getElementById("location_<?php echo $row['id']; ?>").textContent = placeName + ", " + country;
+									})
+									.catch(error => {
+										console.error(error);
+									});
+							</script>
+						</td>
 						<td class="empty" width="160">
 							<div class="dropdown">
 								<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Action
@@ -81,21 +102,35 @@
 				$query = mysqli_query($con, "select * from requests where status='active'");
 				$count = mysqli_num_rows($query);
 
-				while ($row = mysqli_fetch_array($query)) {
-					$id = $row['id'];
-					$full_name = $row['full_name'];
-					$pharmacy_name = $row['pharmacy_name'];
-					$email = $row['email'];
-					$phone_number = $row['phone_number'];
-					$certificate = $row['certificate'];
-					$location = $row['location']; ?>
-
+				while ($row = mysqli_fetch_array($query)) { 
+					$id = $row['id'];?>
 					<tr>
 						<td><?php echo $row['full_name']; ?></td>
 						<td><?php echo $row['pharmacy_name']; ?></td>
 						<td><?php echo $row['email']; ?></td>
 						<td><?php echo $row['phone_number']; ?></td>
-						<td><?php echo $row['location']; ?></td>
+						<td>
+							<a href="view_location.php?id=<?php echo $id; ?>" id="location_<?php echo $row['id']; ?>"></a>
+
+							<script>
+								var latLng = '<?php echo $row['location']; ?>';
+								var [latitude, longitude] = latLng.split(", ");
+
+								var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+
+								fetch(apiUrl)
+									.then(response => response.json())
+									.then(data => {
+										// Extract the name of the place from the API response
+										var placeName = data.address.village || data.address.town || data.address.city || data.address.hamlet;
+										var country = data.address.country;
+										document.getElementById("location_<?php echo $row['id']; ?>").textContent = placeName + ", " + country;
+									})
+									.catch(error => {
+										console.error(error);
+									});
+							</script>
+						</td>
 						<td class="empty" width="160">
 							<div class="dropdown">
 								<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">Action
@@ -144,11 +179,12 @@
 							</div>
 						</td>
 					</tr>
-			<?php include('modal_reject_request.php');
+
+			<?php
+					include('modal_reject_request.php');
 					include('modal_accept_request.php');
 				}
-			}
-			?>
+			} ?>
 
 			<script>
 				var count = <?php echo $count; ?>;

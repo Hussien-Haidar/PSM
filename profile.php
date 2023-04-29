@@ -3,13 +3,20 @@
 else { ?>
     <?php include('header.php'); ?>
 
+    <style>
+        a:empty:before {
+            content: "Please wait...";
+            color: grey;
+            text-decoration: none;
+        }
+    </style>
+
     <body>
         <?php include('navbar.php'); ?>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span12" id="">
+                <div class="span9" id="">
                     <div class="row-fluid">
-                        <!-- block -->
                         <div id="block_bg" class="block">
                             <div class="navbar navbar-inner block-header">
                                 <div class="muted pull-left">
@@ -24,13 +31,14 @@ else { ?>
                                     <a href="edit_profile.php"><i class="icon-pencil icon-large"></i> Edit</a>
                                 </div>
 
-                                
+
                             </div>
                             <div class="block-content collapse in">
                                 <?php
                                 $id = $_SESSION['id'];
                                 $query = mysqli_query($con, "SELECT * from pharmacists where id='$id'");
                                 $row = mysqli_fetch_array($query);
+                                $latLng = $row['location'];
 
                                 ?>
                                 <div class="alert alert-success">PROFILE DETAILS</div>
@@ -47,12 +55,12 @@ else { ?>
                                     Email: <strong><?php echo $row['email']; ?></strong>
                                     <hr>
 
-                                    Loaction: <strong><?php echo $row['location']; ?></strong>
+                                    Loaction: <a href="view_my_location.php?id=<?php echo $id ?>" title="View your location" id="location"></a>
                                     <hr>
 
                                     Status: <strong><?php if ($row['status'] == 'verified') echo 'Active'; ?></strong>
                                 </div>
-                                <div class="span5">
+                                <div class="span6">
                                     Full Name: <strong><?php echo $row['full_name']; ?></strong>
                                     <hr>
 
@@ -61,6 +69,22 @@ else { ?>
 
                                     <a data-placement="left" title="Click to View Certificate" id="view<?php echo $id; ?>" href="view_certificate.php<?php echo '?id=' . $row['id']; ?>" class="btn btn-warning"><i class="icon-search icon-large"></i> View Certificate</a>
                                 </div>
+
+                                <script>
+                                    var latlang = '<?php echo $latLng; ?>';
+                                    var [latitude, longitude] = latlang.split(", ");
+
+                                    var apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+                                    fetch(apiUrl)
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            var locationName = data.display_name;
+
+                                            document.getElementById("location").textContent = locationName;
+                                        })
+                                        .catch(error => console.error(error));
+                                </script>
                             </div>
                         </div>
                     </div>

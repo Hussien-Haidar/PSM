@@ -14,7 +14,7 @@ $current_date = date('d/m/Y');
 $date = strval($current_date);
 
 $length = 10;
-$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_';
+$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
 for ($i = 0; $i < $length; $i++) {
 	$username .= $chars[rand(0, strlen($chars) - 1)];
 	$password .= $chars[rand(0, strlen($chars) - 1)];
@@ -38,10 +38,14 @@ if (mysqli_num_rows($query) > 0) {
 }
 
 if (!$exist) {
-	$query = mysqli_query($con, "INSERT INTO PHARMACISTS
-	(username, full_name, pharmacy_name, email, phone_number, password, location, status, created_at)
-	VALUES
-	('$username', '$full_name', '$pharmacy_name', '$email', '$phone_number', '$password', '$location', 'verified', '$date')");
+	if ($location != null) {
+		$query = mysqli_query($con, "INSERT INTO PHARMACISTS
+		(username, full_name, pharmacy_name, email, phone_number, password, location, status, created_at)
+		VALUES
+		('$username', '$full_name', '$pharmacy_name', '$email', '$phone_number', '$password', '$location', 'verified', '$date')");
 
-	echo 'pharmacist_added';
+		echo 'pharmacist_added';
+	} else {
+		echo 'empty_location';
+	}
 }

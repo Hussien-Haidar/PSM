@@ -6,9 +6,9 @@
     </div>
     <form method="POST" action="modal_action.php">
 
-        <input type="hidden" value="<?php echo $id; ?>" class="input-block-level" name="id">
-        <input type="hidden" value="<?php echo $email; ?>" class="input-block-level" name="email">
-        <input type="hidden" value="<?php echo $full_name; ?>" class="input-block-level" name="full_name">
+        <input type="hidden" value="<?php echo $row['id']; ?>" class="input-block-level" name="id">
+        <input type="hidden" value="<?php echo $row['email']; ?>" class="input-block-level" name="email">
+        <input type="hidden" value="<?php echo $row['full_name']; ?>" class="input-block-level" name="full_name">
 
         <div class="modal-body">
             <div class="alert alert-danger">

@@ -6,13 +6,13 @@
     </div>
     <form method="POST" action="modal_action.php">
 
-        <input type="hidden" value="<?php echo $id; ?>" name="id">
-        <input type="hidden" value="<?php echo $full_name; ?>" name="full_name">
-        <input type="hidden" value="<?php echo $pharmacy_name; ?>" name="pharmacy_name">
-        <input type="hidden" value="<?php echo $email; ?>" name="email">
-        <input type="hidden" value="<?php echo $phone_number; ?>" name="phone_number">
-        <input type="hidden" value="<?php echo $certificate; ?>" name="certificate">
-        <input type="hidden" value="<?php echo $location; ?>" name="location">
+        <input type="hidden" value="<?php echo $row['id']; ?>" name="id">
+        <input type="hidden" value="<?php echo $row['full_name']; ?>" name="full_name">
+        <input type="hidden" value="<?php echo $row['pharmacy_name']; ?>" name="pharmacy_name">
+        <input type="hidden" value="<?php echo $row['email']; ?>" name="email">
+        <input type="hidden" value="<?php echo $row['phone_number']; ?>" name="phone_number">
+        <input type="hidden" value="<?php echo $row['certificate']; ?>" name="certificate">
+        <input type="hidden" value="<?php echo $row['location']; ?>" name="location">
 
         <div class="modal-body">
             <div class="alert alert-danger">
