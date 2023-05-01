@@ -1,18 +1,14 @@
 <?php
 include('dbcon.php');
 
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a nfuction
-//It is used to send emails for specific emails
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-//Create an instance; passing `true` enables exceptions
+$resetUrl = 'https://hussien300.000webhostapp.com/PSM-main/reset_password.php?email=' . urlencode($_POST['email']);
+
 $mail = new PHPMailer(true);
 
 //Server settings
@@ -25,19 +21,15 @@ $mail->Password   = 'your password';
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = 465;
 
-//Recipients
 $mail->setFrom('72030603@students.liu.edu.lb', 'PSM - Pharmacist System Management');
 
 $mail->addAddress($_POST['email']);
-
-//Content
 $mail->isHTML(true);
 $mail->Subject = 'Reset Password';
-$mail->Body = '
-<h1>Reset Password Button</h1>
-<p>To reset your password please click on the below button:</p>
-<a href="http://www.example.com" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Reset Password</a>
-';
+$mail->Body = '<p>To reset your password please click on the below button:</p>
+    <a href="' . $resetUrl . '" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        Reset Password
+    </a>';
 
 if (isset($_POST["email"])) {
     $email = $_POST['email'];
