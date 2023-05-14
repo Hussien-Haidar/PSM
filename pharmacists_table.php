@@ -36,7 +36,6 @@
 		</thead>
 
 		<tbody>
-
 			<?php
 			if (isset($_GET["status"]) && $_GET["status"] == "active") {
 				$query = mysqli_query($con, "select * from pharmacists where status='verified'") or die('Error, insert query failed');
@@ -90,7 +89,6 @@
 					<td><?php echo $row['phone_number']; ?></td>
 					<td>
 						<a href="view_location.php?id=<?php echo $id; ?>&role=pharmacist" id="location_<?php echo $row['id']; ?>"></a>
-
 						<script>
 							var latLng = '<?php echo $row['location']; ?>';
 							var [latitude, longitude] = latLng.split(", ");

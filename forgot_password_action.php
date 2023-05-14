@@ -7,7 +7,7 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-$resetUrl = 'https://hussien300.000webhostapp.com/PSM-main/reset_password.php?email=' . urlencode($_POST['email']);
+$resetUrl = 'https://hussien300.000webhostapp.com/PSM/reset_password.php?email=' . urlencode($_POST['email']);
 
 $mail = new PHPMailer(true);
 

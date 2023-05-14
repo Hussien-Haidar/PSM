@@ -50,9 +50,10 @@ if (!$exist) {
     }
 
     if ($result) { ?>
-        <b style="padding-left: 20px; font-size: 20px;" class="text-info">Your request has been sent successfully to the administration, please wait to review
+        <b style="padding-left: 20px; font-size: 20px;" class="text-warning">Your request has been sent successfully to the administration, please wait to review
             the information you provided, when we are done you will get email notification holding your
-            username and password if accepted.
+            username and password if accepted. <br><br>
+            <a href="home.php">Go to home page</a>
         </b>
     <?php }
 } else { ?>

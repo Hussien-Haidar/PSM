@@ -36,7 +36,7 @@
                                             header: 'Failed to Send'
                                         });
                                         var delay = 5000;
-                                    } else if (html == 'email_found') {
+                                    } else {
                                         $.jGrowl("verification email has been sent successfully", {
                                             header: 'Verification Email Sent'
                                         });

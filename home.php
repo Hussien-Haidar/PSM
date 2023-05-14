@@ -34,7 +34,7 @@ include('header.php');
 								$.jGrowl("Loading Please Wait......", {
 									sticky: true
 								});
-								$.jGrowl("Welcome to Pharmacist System Management", {
+								$.jGrowl("Welcome to Delivery Management System", {
 									header: 'Access Granted'
 								});
 								var delay = 1000;
@@ -46,7 +46,7 @@ include('header.php');
 								$.jGrowl("Loading Please Wait......", {
 									sticky: true
 								});
-								$.jGrowl("Welcome to Pharmacist System Management", {
+								$.jGrowl("Welcome to Delivery Management System", {
 									header: 'Access Granted'
 								});
 								var delay = 1000;
@@ -72,4 +72,5 @@ include('header.php');
 	</div>
 	<?php include('script.php'); ?>
 </body>
+
 </html>

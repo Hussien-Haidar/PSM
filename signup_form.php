@@ -30,7 +30,7 @@
                                 <div class="span6">
                                     <input type="text" class="input-block-level" id="full_name" name="full_name" placeholder="Full Name" required>
                                     <input type="email" class="input-block-level" id="email" name="email" placeholder="Email" required>
-                                    <input type="tel" pattern="^(?:\+961|961|0)?(1(?:0[0-2]|[2-9]\d)|3[0-9]|7(?:0|1|8)|81)\d{6}$" class="input-block-level" id="phone_number" name="phone_number" placeholder="Phone(+961)/ Ex: 03123456" required>
+                                    <input type="tel" pattern="^(?:\+961|961|00961)?(1(?:0[0-2]|[2-9]\d)|3[0-9]|7(?:0|1|8)|81|03|3|01|1)\d{6}$" class="input-block-level" id="phone_number" name="phone_number" placeholder="Whatsapp, 78123456" required>
                                     <input type="text" class="input-block-level" id="location" placeholder="Location" readonly>
                                     <input type="hidden" class="input-block-level" id="latlng" name="location" value="">
                                 </div>

@@ -1,16 +1,11 @@
 <?php if (!isset($_GET['email']) || $_GET['email'] == null) echo 'access denied';
-else { ?>
-    <?php include('header.php'); ?>
+else {
+    include('header.php');
+    $email = $_GET['email'];
+?>
 
     <body id="login">
         <div class="container">
-
-            <?php
-            $email = $_GET['email'];
-            $query = mysqli_query($con, "select * from pharmacists where email = '$email'");
-            $row = mysqli_fetch_array($query);
-            ?>
-
             <form id="reset_password" class="form-signin" method="post">
                 <h3 class="form-signin-heading"><i class="icon-lock"></i> Reset Password</h3>
                 <input type="hidden" name="email" value="<?php echo $email; ?>" required>
