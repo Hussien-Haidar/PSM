@@ -13,3 +13,4 @@ access the quantity. If the quantity is zero it will be automatically hidden and
 You can simply visit the website, I hosted it on 000Webhost. Click on (https://hussien300.000webhostapp.com/PSM/). 
 
 login to admin dashboard, use the following credential: username and password = admin
+login to pharmacist dashboard, use the following credential: username = hussien, password = haidar
