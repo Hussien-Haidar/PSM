@@ -11,3 +11,5 @@ for pharmacists and allow them to enter the medicine name and the quantity knowi
 access the quantity. If the quantity is zero it will be automatically hidden and will not appear with the search results on the mobile version.
 
 You can simply visit the website, I hosted it on 000Webhost. Click on (https://hussien300.000webhostapp.com/PSM/). 
+
+login to admin dashboard, use the following credential: username and password = admin
