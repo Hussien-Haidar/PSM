@@ -10,7 +10,7 @@ The project contains two dashboards one for admins and one for pharmacists. The 
 for pharmacists and allow them to enter the medicine name and the quantity knowing that the quantity will be private, only the pharmacist can 
 access the quantity. If the quantity is zero it will be automatically hidden and will not appear with the search results on the mobile version.
 
-You can simply visit the website, I hosted it on 000Webhost. Click on (https://hussienhaidar.com/psm). 
+You can simply visit the website, I hosted it on namecheap. Click on (https://hussienhaidar.com/psm). 
 
 login to admin dashboard, use the following credential: username and password = admin
 login to pharmacist dashboard, use the following credential: username = hussien, password = haidar
