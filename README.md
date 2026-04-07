@@ -1,5 +1,5 @@
-# PMS
-pharmacist system Management
+# PSM
+Pharmacist System Management
 
 ## About
 This website is designed using Html, css, JavaScript and bootstrap and connected to phpmyadmin using php language. The idea of this project
